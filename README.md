@@ -977,6 +977,30 @@ No cotidiano é comum considerar undefined como uma ausência de valor “inespe
 
 ## Var, Let e Const
 
+var --> funciona basicamente em qq parte do codigo
+
+![image](https://github.com/FlavianaFXT/Javascript-Tipos-variaveis-e-funcoes/assets/113718720/c3fd71d9-6e99-4490-89c6-8b4613dce389)
+
+![image](https://github.com/FlavianaFXT/Javascript-Tipos-variaveis-e-funcoes/assets/113718720/7a3195c5-93f3-42a9-b7d0-d8d851c74848)
+
+
+let --> surgiu com o js 2015
+
+![image](https://github.com/FlavianaFXT/Javascript-Tipos-variaveis-e-funcoes/assets/113718720/fe86c7fc-0573-4c71-ad14-4051aaafb19d)
+
+![image](https://github.com/FlavianaFXT/Javascript-Tipos-variaveis-e-funcoes/assets/113718720/4e9cbd2f-b297-4adb-acb9-6d80f7238968)
+
+![image](https://github.com/FlavianaFXT/Javascript-Tipos-variaveis-e-funcoes/assets/113718720/d6522e1e-def5-40a4-82bd-12d5d6cceece)
+
+const --> impede que alguem mude o valor da variavel;
+
+![image](https://github.com/FlavianaFXT/Javascript-Tipos-variaveis-e-funcoes/assets/113718720/5eed77d3-e0bb-47f6-a928-daae9f7ac15f)
+
+![image](https://github.com/FlavianaFXT/Javascript-Tipos-variaveis-e-funcoes/assets/113718720/654c65a8-5991-4add-9b05-b454c5ff6dd7)
+
+![image](https://github.com/FlavianaFXT/Javascript-Tipos-variaveis-e-funcoes/assets/113718720/94d56a51-d2ee-4d71-8346-a2435b8cc8d7)
+
+
 
 
 
