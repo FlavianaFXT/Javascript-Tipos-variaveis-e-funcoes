@@ -17,6 +17,22 @@ Como declarar uma variável booleana e definir seu valor como verdadeiro (true) 
 Onde as booleanas mais aparecem, como resultados de comparações com === ou outros operadores de comparação como >=.
 
 
+----- INSERIR O QUE ESTÀ NO CELULAR -----
+
+O que são funções, pequenos trechos de código que podem ser executados uma ou mais vezes.
+
+As vantagens de se usar uma função, pois com elas conseguimos deixar o código mais curto e mais legível, facilitando a manutenção.
+
+Como retornar informações da função, utilizando o return, lembrando que o console.log() apenas mostra a informação no terminal e não para outras partes do código.
+
+A utilidade dos argumentos, já que com eles podemos passar variáveis para as funções poderem usar os valores.
+
+Que com o hoisting o JavaScript analisa todo o código procurando por variáveis declaradas com var e funções para trazer tais declarações para o início do código.
+
+Expressões de função, uma maneira diferente de montar funções usando variáveis do tipo const e chamando-as pelo nome. Lembrando que é necessário que o programa passe pela variável antes de podermos chamá-la, já que não há suporte à hoisting.
+
+Arrow function, uma função declarada de maneira mais compacta usando uma const. A arrow function também não tem suporte à hoisting.
+
 
 # 1. Tipos Primitivos
 
@@ -1001,6 +1017,371 @@ const --> impede que alguem mude o valor da variavel;
 ![image](https://github.com/FlavianaFXT/Javascript-Tipos-variaveis-e-funcoes/assets/113718720/94d56a51-d2ee-4d71-8346-a2435b8cc8d7)
 
 
+--------------INSERIR AQUI PARTE QUE ESTÀ NO CELULAR -------------
+
+# 5. FUNÇÕES
 
 
+## Expressão de Função
 
+No módulo sobre funções, já aprendemos a declarar uma função, executá-la e o que são os parâmetros de função. No entanto, ao pesquisar na documentação do JavaScript, ocasionalmente encontramos outra maneira de escrever funções. Vamos examinar isto agora!
+
+Expressão de função
+Para começar, criaremos um novo arquivo chamado expressoes-funcao.js.
+
+A maneira mais clássica de escrever uma função em JavaScript e em várias outras linguagens de programação é começar com a palavra function, seguida do nome da função e de parâmetros opcionais. Dentro da função, um bloco de código descreve a ação que a função deve realizar.
+
+Quando desejamos executar a função, a chamamos pelo nome e passamos o parâmetro necessário a ela. Este parâmetro pode ser uma string, outra função, um texto, um número, entre outros.
+
+expressoes-funcao.js:
+
+function minhaFuncao(param) {
+  // bloco de código
+}
+
+minhaFuncao("param")
+COPIAR CÓDIGO
+No entanto, existe outra maneira de escrever funções em JavaScript, que chamamos de expressão de função. Vamos entender como é feito?
+
+Primeiramente, iniciamos com uma const, uma variável que chamaremos de soma para criar uma função que faz a adição entre dois números. Em seguida, adicionamos sinal de igual (=) e passamos function(), recebendo dois parâmetros entre os parênteses, como num1 e num2.
+
+Feito isso, abrimos e fechamos chaves, passando entre elas a cláusula return, que já estudamos, seguida da operação num1 + num2 que queremos que a função soma() faça.
+
+Se quisermos executar essa função, podemos chamar o método console.log() e passar os números que desejamos somar para soma(), por exemplo, 1 e 1, ou qualquer outro número à sua escolha.
+
+const soma = function(num1, num2) {return num1 + num2}
+console.log(soma(1, 1))
+COPIAR CÓDIGO
+Agora, vamos comentar a declaração de função que fizemos a princípio, salvar o código e executá-lo no terminal com o comando node expressoes-funcao.js, que exibirá a saída como 2.
+
+Embora possa parecer que escrever a função de maneira "A" ou "B" é a mesma coisa, nem sempre é. Assim, pode ser útil entender as diferenças entre essas duas formas de escrever funções, pois diferenças sutis podem causar erros em seu código.
+
+Leo, nos ajude a identificar as diferenças entre declaração de função e expressão de função.
+
+Leonardo: Na expressão de função, a função não tem um nome; criamos uma variável, neste caso criada com const, e atribuímos nossa função a essa variável.
+
+É importante que seja uma const para evitarmos a substituição de um valor dentro dela, o que poderia excluir a nossa função no decorrer do código.
+
+Portanto, a nossa expressão não tem um nome propriamente dito; o nome é opcional e geralmente não o usamos. Além disso, a expressão é uma maneira mais concisa de escrever a função, pois não ocupa várias linhas e podemos fazer tudo em uma única linha.
+
+Juliana: Se tentarmos colocar tudo em uma única linha utilizando a declaração, irá funcionar?
+
+Leonardo: Até podemos fazer desse jeito, porém, não é muito recomendado, pois o código acaba ficando confuso. Não é uma boa prática agir dessa maneira, é melhor quebrar as linhas quando possível.
+
+Juliana: Perfeito! Existe também a questão das boas práticas.
+
+Nós já mencionamos que as funções que criamos com expressão normalmente são anônimas, elas não possuem nome. O que tem nome é a constante que utilizamos para executá-las, mas a função em si, embora possa ter um nome, nós normalmente não usamos.
+
+Essas são algumas diferenças entre a expressão de função e a declaração de função, mas existe uma diferença principal, que é a mais importante para entender. Vamos escrever um código e o Leo irá explicar exatamente qual é essa diferença.
+
+Por enquanto, apenas comentaremos as linhas anteriores, onde as funções que já escrevemos são executadas. Para mostrar qual é a diferença principal, criaremos uma function no modo declarativo, cujo nome será apresentar(). Ela não receberá nenhum parâmetro, e irá apenas retornar a string "olá".
+
+function apresentar() {
+  return "olá";
+}
+COPIAR CÓDIGO
+Declaramos esta função na linha 18. Acima dela, na linha 16, vamos chamar com o método console.log() a função apresentar().
+
+console.log(apresentar())
+
+function apresentar() {
+  return "olá";
+}
+COPIAR CÓDIGO
+Mas, podemos fazer isso? Podemos chamar a função, ou seja, pedir para executá-la na linha acima de onde ela é declarada? Vamos realizar um teste. Ao rodar o código no terminal com node expressoes-funcao.js, a saída é "olá". Portanto, podemos concluir que isso é possível.
+
+Vamos realizar outro teste, criando a constante soma abaixo da função apresentar(). Na linha acima dela, chamaremos console.log() recebendo a função soma() com os valores 1,1, parâmetros para a soma que deve resultar em 2.
+
+console.log(apresentar())
+
+function apresentar() {
+  return "olá";
+}
+
+console.log(soma(1, 1))
+const soma = function(num1, num2) {return num1 + num2}
+COPIAR CÓDIGO
+Novamente, ao limpar o terminal e tentar executar esse código, observamos que o "olá" da função anterior, que era a função declarada, continua sendo exibido.
+
+Porém, quando o JavaScript tentou executar a função soma(), que foi feita com a expressão de função, um erro de referência foi encontrado. Ele informou que não consegue acessar soma antes de sua inicialização.
+
+Leo, poderia explicar por que isso acontece? Esse é um comportamento do JavaScript que é muito importante entender para resolver esse tipo de problema.
+
+Leonardo: O que acontece é o seguinte: quando fazemos a declaração de soma com const, ela se comporta como uma variável. E como é uma variável no JavaScript, não podemos usá-la, a menos que tenhamos passado por ela, iniciado-a uma vez.
+
+A exceção disso é o caso das funções que declaramos com um nome específico, ou as var. Nesses casos, o interpretador do JavaScript vai passar pelo nosso código e puxar todas essas declarações para o topo do código.
+
+Assim, ele primeiro iniciará todas as declarações e todas as var, e depois vai executar o código. Portanto, não temos esse perigo. Esse trabalho é chamado de hoisting (levantar).
+
+O objetivo é trazer todas as declarações para o topo do nosso código.
+
+Juliana: Sendo assim, podemos dizer que antes de executar qualquer coisa no código, o JavaScript lista as funções declaradas e o que foi declarado como var. Antes de iniciar qualquer atividade, o JavaScript já sabe o que é. Por isso, funciona chamar a função declarada antes dela "existir" no código.
+
+Atualmente, utilizamos bastante a forma de expressão de função com const, por exemplo. Normalmente, utilizamos const na maioria das vezes. É importante, caso ocorra esse erro, ter em mente que é um comportamento do JavaScript chamado hoisting.
+
+Conclusão
+Esperamos que você não encontre muitos bugs ao longo do caminho e inclua a palavra-chave "hoisting" em seu dicionário mental de JavaScript. Isso servirá para lembrar o porquê de certos comportamentos.
+
+Leonardo: É crucial para evitar erros futuros.
+
+![image](https://github.com/FlavianaFXT/Javascript-Tipos-variaveis-e-funcoes/assets/113718720/3c5f366a-7613-4f64-bd3a-d377794b9f54)
+
+
+![image](https://github.com/FlavianaFXT/Javascript-Tipos-variaveis-e-funcoes/assets/113718720/db2c198e-93d3-4560-a0e6-c4d7c74c5a66)
+
+## Arrow Function
+
+Função é um assunto muito vasto em JavaScript. Estamos começando a explorar o básico das funções, mas há muito mais para discutir. Nesse vídeo, vamos falar sobre um terceiro tipo de função.
+
+Arrow Function
+Para isso, criaremos um arquivo chamado arrow-funcion.js. A arrow function é uma função de seta, isso porque utiliza uma seta na sua sintaxe. Essa é uma novidade do ES6.
+
+Anteriormente, criávamos as funções usando, por exemplo, function apresentar(nome) seguido de chaves e dentro um return meu nome é ${nome}``. Essa é a forma clássica.
+
+function apresentar (nome) { 
+return meu nome é ${nome}`; 
+}
+COPIAR CÓDIGO
+Já se utilizarmos a arrow function é semelhante à expressão de função. Primeiro, criamos uma const chamada apresentarArrow. A diferença é que, atribuímos um valor a ela usando o sinal de igual.
+
+Primeiro, passamos o parâmetro nome. Logo após, vem a arrow, a flecha =>. Nesse caso, não precisamos adicionar chaves, já que possui apenas uma linha de código.
+
+Precisamos passar somente o que a função retornará, nesse caso a string meu nome é ${nome}.
+
+function apresentar (nome) { 
+return meu nome é ${nome}`; 
+}
+
+const apresentaArrow = nome => `meu nome é ${nome}`;
+COPIAR CÓDIGO
+Essa é uma arrow function clássica com apenas um parâmetro, portanto, não temos parênteses para fechar os parâmetros, nem chaves para fechar o bloco de código do que a função precisa fazer.
+
+Antes de nos aprofundarmos na parte teórica da arrow function, faremos mais um exemplo. Logo abaixo, criamos a const soma igual à (num1, num2). Nesse caso precisamos adicionar parênteses, caso contrário, o JavaScript ficaria confuso.
+
+Logo após passamos a seta => e num1 + num2. Também não precisamos do return nesse caso.
+
+function apresentar (nome) { 
+return meu nome é ${nome}`; 
+}
+
+const apresentaArrow = nome => `meu nome é ${nome}`;
+const soma = (num1, num2) => num1 + num2;
+COPIAR CÓDIGO
+Leonardo: A Arrow Function foi introduzida junto com o ES6, em 2015, e deixou o código muito menor, pois agora podemos declarar tudo em uma única linha, não precisamos de chaves, nem retornar nada.
+
+Além disso, ela não pode ser nomeada, ou seja, essa opção não está nem disponível e também sempre precede uma constante com o nome da variável que será utilizada.
+
+Há alguns casos especiais de uso da arrow function envolvendo objetos, por exemplo. Porém, esse não é o foco desse curso.
+
+Juliana: Ótimo, Leo. Mas, por exemplo, não precisamos usar return, pois isso será feito sozinho, mas nesse caso temos apenas uma linha de código.
+
+Leonardo: Ótimo ponto, Ju! Se o código tiver mais de uma linha de instrução será preciso usar as chaves e o return.
+
+Juliana: Vamos, então, criar um exemplo. Começamos criando uma const e definiremos que a função irá somar números pequenos, como de 1 a 9. Então, a nomeamos de somaNumerosPequenos.
+
+Adicionamos o sinal de igual e passamos, dentro de parenteses, num1, num2, em seguida, adicionamos a seta =>.
+
+Lembrando que a arrow function é escrita usando o sinal de igual, não o hífen, seguido do sinal maior que =>. Já o operador maior ou igual que é escrito ao contrário, >=.
+
+Como essa é uma soma de números pequenos, precisaremos de algumas condições, ou seja, instruções a mais. Sendo assim, precisaremos usar chaves e o return.
+
+Sendo assim, no fim dessa linha adicionamos chaves e damos enter. Dentro passamos if (num1 > 10 || num2 > 10).
+
+Assim, verificaremos se num1 ou num2 são maiores que 10. Se for, retornamos uma mensagem de aviso, caso contrário, retornamos a soma de num1 e num2.
+
+Nesse caso precisamos de return, pois quando trabalhamos com condicionais o if ou else retornam.
+
+Então, na linha abaixo, passamos return "somente números de 1 a 9". Em seguida passamos o else {}e dentro das chaves return num1 + num2
+
+// Arrow function
+const apresentarArrow = nome => 'meu nome é ${nome}`;
+const soma = (num1, num2) => num1 + num2;
+
+//Arrow function com + de 1 linha de instrução
+
+const somaNumeros Pequenos = (num1, num2) => {
+    if (num1 10 || num2 > 10) { 
+        return "somente números de 1 a 9"
+    } else {
+        return num1 + num2;
+    }
+}
+COPIAR CÓDIGO
+Agora que aprendemos declaração de função, expressão de função e arrow function, como sabemos quando usar cada um dos três tipos, Léo?
+
+Leonardo: A arrow function é uma forma rápida e concisa de escrever funções, tornando o código mais limpo, isso é bem positivo.
+
+No entanto, se você achar que a arrow function não é fácil de compreender, podemos utilizar uma declaração de função para isso.
+
+A arrow function também possui vantagens quando estamos trabalhando com objetos, o que não será abordado neste curso. Trataremos disso em outro curso. Mas, de maneira geral, podemos utilizar os três tipos de funções, lembrando do hoisting quando realizamos a declaração da função completa.
+
+Juliana: A arrow function se comporta de maneira idêntica à expressão de função na questão do hoisting, certo?
+
+Leonardo: Exatamente!
+
+Juliana: Como mencionamos anteriormente, há muita coisa para ser explorada em relação às funções, existe muita coisa relacionada aos objetos. Recomendamos que você mantenha isso no seu dicionário mental de JavaScript.
+
+Agora que concluímos, podemos subir o código no GitHub. Como anteriormente já fizemos um commit, agora só precisamos continuar o processo de add, commit e push.
+
+Então, no terminal, começamos passando o comando git status para verificarmos se todos os arquivos estão listados.
+
+git status
+COPIAR CÓDIGO
+Tudo certo. Em seguida, passamos git add . para pegar tudo que não está listado e adicionar ao commit.
+
+git add .
+COPIAR CÓDIGO
+Em seguida, passamos novamente o git status para checar de tudo foi indexado.
+
+git add
+COPIAR CÓDIGO
+Agora, o GitHub reconhece como um novo arquivo. Então passamos o git commit -mseguido da mensagem "operadores e funcoes".
+
+git commit -m "operadores e funcoes"
+COPIAR CÓDIGO
+Por fim, passamos o comando git push origin master.
+
+git push origin master
+COPIAR CÓDIGO
+Sem mensagens de erro, tudo certo!
+
+
+![image](https://github.com/FlavianaFXT/Javascript-Tipos-variaveis-e-funcoes/assets/113718720/56b08d96-7ac8-4274-80b3-a7a9d4bd3f56)
+
+![image](https://github.com/FlavianaFXT/Javascript-Tipos-variaveis-e-funcoes/assets/113718720/243eaf8c-0f3e-4533-abce-6d6b3e3ffe47)
+
+## Estrutura do `if`
+PRÓXIMA ATIVIDADE
+
+Durante o curso, fizemos uso de uma estrutura chamada de condicional para definir o fluxo dos nossos programas. As estruturas condicionais são essenciais para a programação, pois permitem que um programa execute este ou aquele bloco de código de acordo com uma condição, por exemplo: “Se o e-mail e a senha estiverem corretos, o usuário poderá acessar o sistema. Senão ele deve receber um aviso de credenciais de acesso incorretas”. Uma condição exclui automaticamente a outra, pois ou ambas as credenciais (e-mail e senha) estarão corretas, ou não.
+
+As estruturas condicionais permitem que o código se ramifique e tome “caminhos” diferentes de acordo com a condição fornecida.
+
+Abaixo, vamos relembrar a estrutura condicional ife suas variações:
+
+if
+A principal estrutura condicional é if, que podemos traduzir literalmente como “se”:
+
+if (condicao) {
+ // código a ser executado
+}COPIAR CÓDIGO
+A condicao é sempre uma expressão que deverá ser avaliada e retornar true ou false (ou seus equivalentes “truthy” ou “falsy”). O bloco de código dentro do if só será executado caso a expressão retorne true ou um valor “truthy”. Por exemplo:
+
+const num = 10;
+
+if (num === null) {
+ console.log('número não fornecido');
+}COPIAR CÓDIGO
+No exemplo acima, a instrução console.log(‘número não fornecido’); não será executada, pois como a variável num foi definida com um valor de 10, o resultado da comparação num === null retornará false. Ou seja, o interpretador não vai, como dizemos, “entrar no if” e executar o código.
+
+Vejamos um outro exemplo:
+
+const num = 10;
+
+if (num !== null) {
+ console.log(`o número é ${num}`);
+}COPIAR CÓDIGO
+Neste novo exemplo, o código dentro do bloco if será executado normalmente, pois o resultado da expressão num !== null (ou seja, “o valor da variável num é diferente de null”) retorna true.
+
+A expressão acima também poderia ser escrita da seguinte forma:
+
+if (num) {
+ console.log(`o número é ${num}`);
+}COPIAR CÓDIGO
+Com o mesmo resultado.
+
+Uma vez que null é um valor que podemos atribuir a uma variável, a seguinte estrutura também seria possível:
+
+const num = null;
+
+if (num === null) {
+ console.log('número não fornecido');
+}COPIAR CÓDIGO
+O código acima também pode ser escrito da seguinte forma, pois null é considerado um valor “falsy”:
+
+if (!num) {
+ console.log('número não fornecido');
+}COPIAR CÓDIGO
+Múltiplas condições
+É possível usar os operadores AND (&&) ou OR (||) para executar o código no if caso uma das condições for verdadeira, ou as duas:
+
+const num = 11;
+
+if (num > 10 || !num) {
+ console.log('número não válido');
+}COPIAR CÓDIGO
+O console exibe a mensagem corretamente, pois uma das condições foi atendida e retornou true (num > 10). Usamos o operador lógico ||, or (ou ou em português) para especificar que a condição do if será validada se apenas uma das condições for verdadeira, mas não necessariamente todas.
+
+Também é possível usar o operador lógico && (and ou e em português) para especificar que a condição do if será validada apenas se todas as condições retornarem true:
+
+const num = 11;
+
+if (num > 10 && num < 20) {
+ console.log('número válido');
+}COPIAR CÓDIGO
+O console acima é executado normalmente, pois o número 11 atende ambas as condições especificadas no if: num ser maior do que 10 e/and/&& ser menor do que 20.
+
+if…else
+Outra forma de condicional muito utilizada é adicionar a cláusula else para ser executada quando a condição do if retorna false. Podemos ler if…else como “se… senão”, como por exemplo “se uma dada condição for verdadeira (true) execute um determinado código; senão, execute outro código”.
+
+function verificaNumero(numero) {
+    if (numero > 10) {
+         return 'número maior que 10';
+    } else {
+        return 'número não é maior que 10';
+    }
+}
+
+console.log(verificaNumero(9)) //número não é maior que 10COPIAR CÓDIGO
+No exemplo acima, a comparação numero > 10 retorna false, pois a função foi executada tendo 9 como argumento para num. Assim, o bloco de código dentro do if é ignorado e o interpretador vai direto para o bloco dentro do else.
+
+Veja que else não leva nenhuma condição entre parênteses, pois é executada automaticamente caso a condição do if retorne false ou um valor “falsy”.
+
+else if
+A condicional if…else vai executar um bloco de código entre duas possibilidades, dependendo do resultado da expressão que é passada como condição do if. Porém, em alguns casos é necessário mais de duas opções de fluxo para o código; para estes casos existe a cláusula else if:
+
+const num = 15;
+
+if (num >= 0 && num <= 10) {
+  console.log('número entre zero e dez');
+} else if (num > 10 && num <= 20) {
+  console.log('número entre dez e vinte');
+} else if (num > 20 && num <= 30) {
+  console.log('número entre vinte e trinta');
+} else {
+  console.log('outro número');
+}COPIAR CÓDIGO
+Veja que a cláusula else if também precisa receber a condição (ou as condições) como parâmetros, ao contrário do else, que deve fechar a cadeia de condicionais e continua sem receber nenhum parâmetro, pois é o código que será executado caso todas as outras condições anteriores falhem.
+
+IMPORTANTE: Ao trabalhar com múltiplas condições e else if, lembre-se sempre que cada condição e cada bloco (if, else if e else) deve representar condições excludentes entre si! Ou seja, não pode haver ambiguidade entre as condições - uma mesma condição válida tanto no if quanto no else if, por exemplo.
+
+Faça o teste com diversos valores e confira os resultados!
+
+## 10
+Para saber mais: Git e GitHub
+PRÓXIMA ATIVIDADE
+
+O [Git](https://git-scm.com/) é o que chamamos de sistema de versionamento (ou controle) de código. Existem outros, porém ele se tornou o mais utilizado no mundo todo.
+
+O [GitHub](https://github.com/) é uma plataforma que utiliza a tecnologia Git para que qualquer pessoa cadastrada possa salvar, atualizar e acessar seus códigos ou os códigos de seu grupo de trabalho ou empresa.
+
+Neste curso não vamos abordar o Git ou como ele funciona. Caso você precise relembrar como ele funciona, pode consultar os seguintes materiais de referência:
+
+Esta [live](https://www.youtube.com/watch?v=nec3n02idMw&ab_channel=AluraCursosOnline) do YouTube sobre a ferramenta, com várias informações bacanas sobre como ela funciona;
+A websérie no Youtube [Git e GitHub Para Sobrevivência](https://www.youtube.com/watch?v=BAmvmaKQklQ&t=9s) que vai desde o conteúdo básico até o mais avançado!
+
+## Faça como eu fiz: Separando código em funções
+PRÓXIMA ATIVIDADE
+
+Agora que já sabemos como declarar funções com partes específicas de códigos e executá-las no momento certo, você pode voltar ao que já fizemos nas aulas anteriores e reescrever - ou refatorar - para que cada parte esteja separada em sua função.
+
+
+## [Repositorio Final do Curso](https://github.com/alura-cursos/2206-fundamentos-js)
+
+## Conclusão
+
+A intenção é que você estude cada uma dessas partes com bastante cuidado para que esses conceitos, que estão por trás do que vimos no curso, sejam absorvidos.
+
+Assim, quando você aprender mais conteúdos e adicionar mais elementos de JavaScript, tudo o que abordamos estará consolidado em sua mente. Isso é bem mais completo do que simplesmente digitar let e tudo funcionar. Esse não é nosso objetivo!
+
+Entender isso vai te ajudar a compreender comportamentos na linguagem, erros (bugs) que às vezes acontecem, e por que o JavaScript se comporta de determinadas maneiras.
